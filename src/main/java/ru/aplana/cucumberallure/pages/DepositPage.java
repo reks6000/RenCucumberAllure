@@ -65,7 +65,6 @@ public class DepositPage extends BasePage{
     }
 
     public void chooseCurrency(String currencyName) {
-        String oldValue = verifyElem.getText();
         fw.wait(currencies.get(0));
         for (WebElement element : currencies) {
             if(element.getText().equals(currencyName)) {
@@ -74,7 +73,6 @@ public class DepositPage extends BasePage{
             }
         }
         Assert.fail(String.format("Валюта %s не найдена", currencyName));
-        fw.waitForChange(verifyElem, oldValue);
     }
 
     public void writeAmount(String amountValue) {
